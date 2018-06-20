@@ -1,19 +1,44 @@
 <div class="page-wrap">
-
   <div id="canvas"></div>
 
   <div class="flex-wrapper multi-textures" data-vs-id="multiple-textures-vs" data-fs-id="multiple-textures-fs">
     <div class="change-slide__container">
-      <span class="change-slide" data-slide="1">Slide 1</span>
+      <!-- TODO Look at creating previous and next buttons rather than data-slide for each slide -->
+      <!-- <span class="change-slide" data-slide="1">Slide 1</span>
       <span class="change-slide" data-slide="2">Slide 2</span>
       <span class="change-slide" data-slide="3">Slide 3</span>
-      <span class="change-slide" data-slide="4">Slide 4</span>
+      <span class="change-slide" data-slide="4">Slide 4</span> -->
     </div>
+
+
+    <!-- Parallax container -->
+    <!-- TODO Need to look at if we can on each texture -->
+    <div class="cd-background-wrapper" data-sampler="firstTexture" >
+      <figure class="cd-floating-background">
+        <img class="layer-one" src="assets/img/cd-img-1.jpg"/>
+        <img class="layer-two" src="assets/img/cd-img-2.png"/>
+        <img class="layer-three"src="assets/img/cd-img-3.png"/>
+      </figure>
+    </div>
+
+
+    <!-- <div class="cd-background-wrapper" data-sampler="secondTexture" >
+      <figure class="cd-floating-background">
+        <img class="layer-one" src="assets/img/jlr-foreground.png"/>
+        <img class="layer-two" src="assets/img/jlr-car.png"/>
+        <img class="layer-three"src="assets/img/jlr-background.png"/>
+      </figure>
+    </div> -->
+
     <!-- notice here we are using the data-sampler attribute to name our sampler uniforms -->
     <img src="assets/img/displacement/6.jpg" data-sampler="displacement" />
-    <img src="assets/img/Img22.jpg" data-sampler="firstTexture" />
+
+    <img src="assets/img/main-test.png" data-sampler="firstTexture" />
     <img src="assets/img/Img23.jpg" data-sampler="secondTexture" />
     <img src="assets/img/Img25.jpg" data-sampler="thirdTexture" />
     <img src="assets/img/Img24.jpg" data-sampler="fourthTexture" />
   </div>
+
 </div>
+
+<app-timeline></app-timeline>

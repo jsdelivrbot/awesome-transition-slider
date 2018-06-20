@@ -30,7 +30,9 @@
               "src/styles.scss"
             ],
             "scripts": [
+              "src/assets/js/jquery-2.1.1.js",
               "src/assets/js/curtains.js",
+              "src/assets/js/timeline.min.js"
             ]
           },
           "configurations": {
@@ -81,7 +83,9 @@
               "src/styles.scss"
             ],
             "scripts": [
+              "src/assets/js/jquery-2.1.1.js",
               "src/assets/js/curtains.js",
+              "src/assets/js/timeline.min.js"
             ],
             "assets": [
               "src/favicon.ico",
