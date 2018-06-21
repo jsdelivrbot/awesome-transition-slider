@@ -185,12 +185,12 @@ export class AppComponent implements OnInit {
 
     const multiTexturePlane = webGLCurtain.addPlane(planeElements[0], params);
 
-    console.log('multiTexturePlane', multiTexturePlane);
+    // console.log('multiTexturePlane', multiTexturePlane);
 
     // Create our plane
     // TODO need to look at making a separate function
     multiTexturePlane.onReady(function(){
-      console.log('Plane running');
+      // console.log('Plane running');
       // When the plane is ready we need to add a click event listener that will switch the active texture value
 
       // Listen to the links click
@@ -202,7 +202,7 @@ export class AppComponent implements OnInit {
 
 
       const slideLinks = document.getElementsByClassName('change-slide');
-
+      // TODO Do we need this loop - slidelinks center buttons not being used. Timeline being used instead
       for(let i = 0; i < slideLinks.length; i++) {
         slideLinks[i].addEventListener('click', function(){
           // Get index of the slide to go
@@ -216,7 +216,7 @@ export class AppComponent implements OnInit {
             }, 500);
 
           if(slideToGo == 1) {
-            console.log('Gone to slide');
+            // console.log('Gone to slide');
             setTimeout(() =>{
               $('.cd-background-wrapper').fadeIn(1000);
             }, 500);
@@ -226,6 +226,8 @@ export class AppComponent implements OnInit {
             slider.isAnimating = true;
             // Update our next texture uniform
             multiTexturePlane.uniforms.nextTexture.value = slider.nextTexture;
+
+            console.log(multiTexturePlane, 'mulit');
           }
         }, false);
       }
@@ -262,26 +264,47 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(){
-    console.log('On init')
-    const wrapper = document.querySelector('.cd-floating-background');
-    const layerOne = document.querySelector('.layer-one');
-    const layerTwo = document.querySelector('.layer-two');
-    const layerThree = document.querySelector('.layer-three');
+    console.log('On init');
+    const wrapper = document.querySelectorAll('.cd-floating-background');
+    const parallaxContainer = document.getElementsByClassName('cd-floating-background');
 
-    wrapper.addEventListener('mousemove', function(e){
-      console.log('mouse is moving')
-      const pageX = e.clientX;
-      const pageY = e.clientY;
+    for(let j = 0; j < wrapper.length; j++){
+      console.log(wrapper);
 
-      layerOne.style.transform = 'translateX(' + pageX/100 + '%)translateY(' + pageY/100 + '%)';
+      const layerOne = document.querySelectorAll('.layer-one');
+      const layerTwo = document.querySelectorAll('.layer-two');
+      const layerThree = document.querySelectorAll('.layer-three');
 
-      layerTwo.style.transform = 'translateX(' + pageX/150 + '%)translateY(' + pageY/250 + '%)';
+      wrapper[j].addEventListener('mousemove', function(e){
+        console.log('mouse is moving')
+        const pageX = e.clientX;
+        const pageY = e.clientY;
 
-      layerThree.style.webkitTransform = 'translateX(' + pageX/250 + '%)translateY(' + pageY/400 + '%)';
+        for(let i = 0; i < layerOne.length; i++) {
+          layerOne[i].style.transform = 'translateX(' + pageX/100 + '%)translateY(' + pageY/100 + '%)';
+        }
 
-    	wrapper.style = 'background-position:'+ pageX/200 +'px center';
+        for(let i = 0; i < layerTwo.length; i++) {
+          layerTwo[i].style.transform = 'translateX(' + pageX/150 + '%)translateY(' + pageY/250 + '%)';
+        }
 
-    });
+        for(let i = 0; i < layerThree.length; i++) {
+          layerThree[i].style.transform = 'translateX(' + pageX/250 + '%)translateY(' + pageY/400 + '%)';
+        }
+
+        wrapper[j].style = 'background-position:'+ pageX/200 +'px center';
+
+        // layerOne[j].style.transform = 'translateX(' + pageX/100 + '%)translateY(' + pageY/100 + '%)';
+
+        // layerTwo.style.transform = 'translateX(' + pageX/150 + '%)translateY(' + pageY/250 + '%)';
+
+        // layerThree.style.webkitTransform = 'translateX(' + pageX/250 + '%)translateY(' + pageY/400 + '%)';
+
+
+      });
+    }
+
+
   } // End of OnInit
 
   sliderChange(){

@@ -13,26 +13,29 @@
 
     <!-- Parallax container -->
     <!-- TODO Need to look at if we can on each texture -->
-    <div class="cd-background-wrapper" data-sampler="firstTexture" >
-      <figure class="cd-floating-background">
+    <div class="cd-background-wrapper">
+      <figure class="cd-floating-background" data-sampler="firstTexture">
         <img class="layer-one" src="assets/img/cd-img-1.jpg"/>
         <img class="layer-two" src="assets/img/cd-img-2.png"/>
         <img class="layer-three"src="assets/img/cd-img-3.png"/>
       </figure>
+
+      <figure class="cd-floating-background" data-sampler="secondTexture">
+        <img class="layer-one" src="assets/img/van-background.png"/>
+        <img class="layer-two" src="assets/img/van.png"/>
+        <!-- <img class="layer-three"src="assets/img/jlr-background.png"/> -->
+      </figure>
     </div>
 
-
+      <!-- Second Parallax container -->
     <!-- <div class="cd-background-wrapper" data-sampler="secondTexture" >
-      <figure class="cd-floating-background">
-        <img class="layer-one" src="assets/img/jlr-foreground.png"/>
-        <img class="layer-two" src="assets/img/jlr-car.png"/>
-        <img class="layer-three"src="assets/img/jlr-background.png"/>
-      </figure>
+
     </div> -->
 
     <!-- notice here we are using the data-sampler attribute to name our sampler uniforms -->
     <img src="assets/img/displacement/6.jpg" data-sampler="displacement" />
 
+    <!-- static image to mirror first background wrapper so that fade looks as good as possible -->
     <img src="assets/img/main-test.png" data-sampler="firstTexture" />
     <img src="assets/img/Img23.jpg" data-sampler="secondTexture" />
     <img src="assets/img/Img25.jpg" data-sampler="thirdTexture" />

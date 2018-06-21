@@ -190,6 +190,7 @@ Curtains.prototype.addPlane = function(planeHtmlElement, params) {
         videosArray.push(plane.htmlElement.getElementsByTagName("video")[j]);
     }
 
+
     // load plane images
     if(imagesArray.length > 0) {
         plane.loadImages(imagesArray);
